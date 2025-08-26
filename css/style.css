@@ -14,6 +14,35 @@ body.light-mode header { background-color:#eee; }
 .manga-container img { width:100%; max-width:700px; display:block; margin:20px auto; border-radius:5px; box-shadow:0 0 10px #000; }
 .manga-navigation a { display:inline-block; margin:10px; padding:10px 18px; background-color:#333; color:#eee; text-decoration:none; border-radius:8px; transition:all 0.3s; }
 .manga-navigation a:hover { background-color:#ff66cc; color:#111; transform:translateY(-2px); }
+/* Barra de navegación */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.top-nav a {
+    color: #ff66cc;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.top-nav a:hover {
+    color: #fff;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 /* Contenedor de la galería */
 .manga-gallery {
     display: grid;
