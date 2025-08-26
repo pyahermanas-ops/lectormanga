@@ -47,7 +47,7 @@ function openManga(manga){
 
         for(let i=1;i<=chapter.pages;i++){
             const img = document.createElement('img');
-            img.src = `images/${manga.folder}/${chapter.folder}/${i}.jpg`;
+            img.src = `imagen/${manga.folder}/${chapter.folder}/${i}.jpg`;
             container.appendChild(img);
         }
 
@@ -78,7 +78,7 @@ function openChapter(chapter, manga){
     container.innerHTML = `<h2>${chapter.name}</h2>`;
     for(let i=1;i<=chapter.pages;i++){
         const img = document.createElement('img');
-        img.src = `images/${manga.folder}/${chapter.folder}/${i}.jpg`;
+        img.src = `imagen/${manga.folder}/${chapter.folder}/${i}.jpg`;
         container.appendChild(img);
     }
 }
