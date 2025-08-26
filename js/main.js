@@ -99,6 +99,8 @@ function openManga(manga){
 }
 
 function openChapter(chapter, manga){
+    openChapter(chapter, manga){
+    loadImagesLazy(chapter, manga);
     const container = document.getElementById('manga-images');
     container.innerHTML = `<h2>${chapter.name}</h2>`;
     for(let i=1;i<=chapter.pages;i++){
