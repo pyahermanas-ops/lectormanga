@@ -24,6 +24,34 @@ fetch('js/folders.json') // este JSON simula las carpetas dentro de images/
 });
 
 function openManga(manga){
+    function loadImagesLazy(chapter, manga) {
+    const container = document.getElementById('manga-images');
+    container.innerHTML = `<h2>${chapter.name}</h2>`;
+
+    let currentPage = 1;
+    const totalPages = chapter.pages;
+
+    function loadNext() {
+        if(currentPage > totalPages) return;
+
+        const img = document.createElement('img');
+        img.src = `imagen/${manga.folder}/${chapter.folder}/${currentPage}.jpg`;
+        img.loading = "lazy"; // carga diferida
+        container.appendChild(img);
+
+        currentPage++;
+    }
+
+    // Cargar las primeras 3 imágenes al inicio
+    for(let i=0;i<3;i++) loadNext();
+
+    // Evento scroll: cuando llegues al final, cargar la siguiente
+    container.addEventListener('scroll', () => {
+        if(container.scrollTop + container.clientHeight >= container.scrollHeight - 10){
+            loadNext();
+        }
+    });
+}
     document.body.innerHTML = `
         <button id="toggle-theme">🌙</button>
         <header class="chapter-header"><h1>${manga.name}</h1></header>
