@@ -70,8 +70,22 @@ body.light-mode header { background-color:#eee; }
 .manga-item img {
     width: 100%;
     display: block;
+    transition: transform 0.3s, filter 0.3s;
+}
+.manga-item img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
 }
 
+.manga-item h2 {
+  text-align: center;
+  background: linear-gradient(90deg, #ff66cc, #cc33ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
 /* Nombre del manga */
 .manga-item h2 {
     text-align: center;
