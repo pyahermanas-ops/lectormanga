@@ -22,6 +22,18 @@
     color: #111;
     transform: translateY(-3px);
 }
+.chapter-header {
+    text-align: center;
+    padding: 20px 10px;
+    background-color: #222;
+    border-bottom: 2px solid #ff66cc;
+    margin-bottom: 20px;
+}
+
+.chapter-header h1 {
+    font-size: 2em;
+    color: #ff66cc;
+}
 /* Estilo base - tema oscuro */
 body {
     background-color: #1a1a1a;
