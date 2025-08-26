@@ -39,6 +39,22 @@
     margin: 0 auto;
     padding: 10px;
 }
+.manga-navigation a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 18px;
+    background-color: #333;
+    color: #eee;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.manga-navigation a:hover {
+    background-color: #ff66cc;
+    color: #111;
+    transform: translateY(-2px);
+}
 /* Estilo base - tema oscuro */
 body {
     background-color: #1a1a1a;
