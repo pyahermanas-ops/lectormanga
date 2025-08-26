@@ -1,3 +1,27 @@
+/* Menú de capítulos tipo tarjetas */
+.chapter-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.chapter-menu a {
+    background-color: #333;
+    color: #eee;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    transition: all 0.3s;
+}
+
+.chapter-menu a:hover {
+    background-color: #ff66cc;
+    color: #111;
+    transform: translateY(-3px);
+}
 /* Estilo base - tema oscuro */
 body {
     background-color: #1a1a1a;
