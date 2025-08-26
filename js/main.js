@@ -11,7 +11,7 @@ fetch('js/mangas.json')
         const div = document.createElement('div');
         div.classList.add('manga-item');
         const img = document.createElement('img');
-        img.src = `images/${manga.folder}/${manga.chapters[0].folder}/1.jpg`;
+        img.src = `imagen/${manga.folder}/${manga.chapters[0].folder}/1.jpg`;
         img.alt = manga.name;
         const title = document.createElement('h2');
         title.textContent = manga.name;
