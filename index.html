@@ -1,64 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="css/style.css">
-  <meta charset="UTF-8">
-  <title>Lector de Manga</title>
-  <style>
-    body {
-      background-color: #111;
-      color: #eee;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #222;
-      padding: 20px;
-    }
-    h1 { margin: 0; }
-    nav {
-      margin: 20px 0;
-    }
-    nav a {
-      display: inline-block;
-      margin: 5px;
-      padding: 10px 15px;
-      background-color: #444;
-      color: #eee;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    nav a:hover {
-      background-color: #ff66cc;
-      color: #111;
-    }
-    section {
-      padding: 20px;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Lector Manga</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
 <button id="toggle-theme">🌙</button>
-<header>
-  <h1>Lector de Manga</h1>
+
+<header class="site-header">
+    <h1>Lector Manga</h1>
 </header>
 
-<nav class="chapter-menu">
-    <a href="cap1.html">Cap 1</a>
-    <a href="cap2.html">Cap 2</a>
-    <a href="cap3.html">Cap 3</a>
-</nav>
+<section class="manga-list">
+    <!-- Manga 1 -->
+    <div class="manga-item">
+        <a href="manga1.html">
+            <img src="https://via.placeholder.com/180x250/111111/ff66cc?text=Manga+1" alt="Manga 1">
+            <h2>Manga 1</h2>
+        </a>
+    </div>
 
-<section>
-  <p>Bienvenido al lector de manga. Hacé clic en un capítulo para comenzar.</p>
+    <!-- Manga 2 -->
+    <div class="manga-item">
+        <a href="manga2.html">
+            <img src="https://via.placeholder.com/180x250/222222/ff66cc?text=Manga+2" alt="Manga 2">
+            <h2>Manga 2</h2>
+        </a>
+    </div>
 </section>
+
 <script src="js/app.js"></script>
 </body>
 </html>
+
 
