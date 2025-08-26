@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Capítulo 1</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<button id="toggle-theme">🌙</button>
+
+<header>
+    <h1>Capítulo 1</h1>
+</header>
+
+<section id="manga-images">
+    <!-- Cada imagen se carga a medida que el usuario baja -->
+    <img data-src="images/ejemplo1.jpg" alt="Página 1" class="lazy">
+    <img data-src="images/ejemplo2.jpg" alt="Página 2" class="lazy">
+    <img data-src="images/ejemplo3.jpg" alt="Página 3" class="lazy">
+</section>
+
+<div style="text-align:center; margin:20px 0;">
+    <a href="index.html">⬅ Inicio</a>
+    <a href="cap2.html">➡ Siguiente</a>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/lazyload.js"></script>
+</body>
+</html>
