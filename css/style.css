@@ -130,3 +130,50 @@ body.light-mode header { background-color:#eee; }
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
+/* Hover sobre portada con efecto brillo */
+.manga-item img {
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.manga-item img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* Título de manga con fondo degradado */
+.manga-item h2 {
+    background: linear-gradient(90deg, #ff66cc, #cc33ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Contenedor de capítulos centrado y con separación */
+.manga-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Botón de navegación estilizado */
+.manga-navigation a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 15px;
+    background: linear-gradient(135deg,#ff66cc,#cc33ff);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: all 0.3s;
+}
+
+.manga-navigation a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255,102,204,0.7);
+}
