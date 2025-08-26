@@ -109,3 +109,11 @@ function openChapter(chapter, manga){
         container.appendChild(img);
     }
 }
+const manga = {
+    folder: "mimanga",
+    chapters: [
+        { folder: "cap1", name: "Capítulo 1", pages: 10 },
+        { folder: "cap2", name: "Capítulo 2", pages: 12 },
+        // más capítulos...
+    ]
+};
