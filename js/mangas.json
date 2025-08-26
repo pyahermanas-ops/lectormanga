@@ -1,1 +1,17 @@
-
+[
+    {
+        "name": "Manga 1",
+        "folder": "manga1",
+        "chapters": [
+            {"name": "Capítulo 1", "folder": "cap1", "pages": 2},
+            {"name": "Capítulo 2", "folder": "cap2", "pages": 2}
+        ]
+    },
+    {
+        "name": "Manga 2",
+        "folder": "manga2",
+        "chapters": [
+            {"name": "Capítulo 1", "folder": "cap1", "pages": 2}
+        ]
+    }
+]
