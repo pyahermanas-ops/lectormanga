@@ -1,63 +1,48 @@
 const toggleButton = document.getElementById('toggle-theme');
-toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-});
+toggleButton.addEventListener('click', () => { document.body.classList.toggle('light-mode'); });
 
 const mangaList = document.getElementById('manga-list');
 
-// Lista de mangas automáticos según carpetas dentro de images
-const mangas = [
-    {name: "Manga 1", folder: "manga1"},
-    {name: "Manga 2", folder: "manga2"}
-];
+// Lista de mangas automáticos según carpetas dentro de /images
+fetch('js/mangas.json')
+.then(res => res.json())
+.then(data => {
+    data.forEach(manga => {
+        const div = document.createElement('div');
+        div.classList.add('manga-item');
+        const img = document.createElement('img');
+        img.src = `images/${manga.folder}/${manga.chapters[0].folder}/1.jpg`;
+        img.alt = manga.name;
+        const title = document.createElement('h2');
+        title.textContent = manga.name;
+        div.appendChild(img);
+        div.appendChild(title);
+        mangaList.appendChild(div);
 
-// Generar lista de mangas
-mangas.forEach(manga => {
-    const div = document.createElement('div');
-    div.classList.add('manga-item');
-
-    const link = document.createElement('a');
-    link.href = `#`; // Enlace temporal, luego se genera dinámicamente
-
-    const img = document.createElement('img');
-    img.src = `images/${manga.folder}/cap1-1.jpg`; // Primera imagen de prueba
-    img.alt = manga.name;
-
-    const title = document.createElement('h2');
-    title.textContent = manga.name;
-
-    link.appendChild(img);
-    link.appendChild(title);
-    div.appendChild(link);
-    mangaList.appendChild(div);
-
-    // Click abre capítulo automáticamente
-    link.addEventListener('click', (e)=>{
-        e.preventDefault();
-        openManga(manga.folder);
+        div.addEventListener('click', () => openManga(manga));
     });
 });
 
-// Función para abrir manga y generar capítulos y páginas
-function openManga(folder) {
-    document.body.innerHTML = `<button id="toggle-theme">🌙</button><header><h1>${folder}</h1></header><section id="manga-images" class="manga-container"></section><div class="manga-navigation" style="text-align:center;"><a href="#">⬅ Volver al Inicio</a></div>`;
-
+function openManga(manga){
+    document.body.innerHTML = `<button id="toggle-theme">🌙</button><header class="chapter-header"><h1>${manga.name}</h1></header><section id="manga-images" class="manga-container"></section><div class="manga-navigation" style="text-align:center;"><a href="#">⬅ Volver al Inicio</a></div>`;
     const toggleButton = document.getElementById('toggle-theme');
-    toggleButton.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
-    });
+    toggleButton.addEventListener('click', () => { document.body.classList.toggle('light-mode'); });
 
     const container = document.getElementById('manga-images');
-    const totalPages = 3; // Cambia según tus páginas
 
-    for(let i=1;i<=totalPages;i++){
-        const img = document.createElement('img');
-        img.src = `images/${folder}/cap1-${i}.jpg`;
-        img.alt = `Página ${i}`;
-        container.appendChild(img);
-    }
+    manga.chapters.forEach(chapter => {
+        const chapTitle = document.createElement('h2');
+        chapTitle.textContent = chapter.name;
+        container.appendChild(chapTitle);
 
-    document.querySelector('.manga-navigation a').addEventListener('click', (e)=>{
+        for(let i=1;i<=chapter.pages;i++){
+            const img = document.createElement('img');
+            img.src = `images/${manga.folder}/${chapter.folder}/${i}.jpg`;
+            container.appendChild(img);
+        }
+    });
+
+    document.querySelector('.manga-navigation a').addEventListener('click', e=>{
         e.preventDefault();
         location.reload();
     });
