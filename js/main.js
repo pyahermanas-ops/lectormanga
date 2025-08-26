@@ -117,3 +117,49 @@ const manga = {
         // más capítulos...
     ]
 };
+function loadChapterWithScroll(manga, index) {
+    const chapter = manga.chapters[index];
+    const container = document.getElementById('manga-images');
+    container.innerHTML = `<h2>${chapter.name}</h2>`;
+
+    let currentPage = 1;
+    const totalPages = chapter.pages;
+
+    function loadNext() {
+        if(currentPage > totalPages) return;
+
+        const img = document.createElement('img');
+        img.src = `imagen/${manga.folder}/${chapter.folder}/${currentPage}.jpg`;
+        img.loading = "lazy";
+        container.appendChild(img);
+        currentPage++;
+    }
+
+    // Cargar primeras 3 imágenes
+    for(let i=0;i<3;i++) loadNext();
+
+    container.addEventListener('scroll', () => {
+        if(container.scrollTop + container.clientHeight >= container.scrollHeight - 10){
+            loadNext();
+
+            // Si llegamos al final del capítulo, pasar al siguiente automáticamente
+            if(currentPage > totalPages && index < manga.chapters.length - 1){
+                loadChapterWithScroll(manga, index + 1);
+            }
+        }
+    });
+}
+document.getElementById('prev-chap').addEventListener('click', e=>{
+    e.preventDefault();
+    if(index > 0) loadChapterWithScroll(manga, index - 1);
+});
+
+document.getElementById('next-chap').addEventListener('click', e=>{
+    e.preventDefault();
+    if(index < manga.chapters.length - 1) loadChapterWithScroll(manga, index + 1);
+});
+
+document.getElementById('home').addEventListener('click', e=>{
+    e.preventDefault();
+    location.reload();
+});
