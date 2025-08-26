@@ -204,3 +204,53 @@ body.light-mode header { background-color:#eee; }
 body { background-color:#1a1a1a; color:#eee; }
 body.light-mode { background-color:#f5f5f5; color:#111; }
 body.light-mode .top-nav { background-color:#eee; }
+body {
+    background: linear-gradient(180deg, #1a1a1a 0%, #2c2c2c 100%);
+    color: #eee;
+    font-family: 'Arial', sans-serif;
+    transition: background 0.5s;
+}
+
+body.light-mode {
+    background: linear-gradient(180deg, #f5f5f5 0%, #ddd 100%);
+    color: #111;
+}
+.manga-container img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+    transition: transform 0.3s;
+}
+
+.manga-container img:hover {
+    transform: scale(1.02);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.manga-container img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1);
+    box-shadow: 0 0 25px rgba(255,102,204,0.5);
+}
+.chapter-header h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 20px 0;
+    background: linear-gradient(90deg, #ff66cc, #cc33ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleFade 1s ease-in-out;
+}
+
+@keyframes titleFade {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
