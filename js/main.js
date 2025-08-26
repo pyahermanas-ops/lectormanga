@@ -4,7 +4,7 @@ toggleButton.addEventListener('click', () => { document.body.classList.toggle('l
 const mangaList = document.getElementById('manga-list');
 
 // Función para leer carpetas de imágenes (simulado con fetch a archivos JSON de prueba)
-fetch('js/folders.json') // este JSON simula las carpetas dentro de images/
+fetch('js/folders.json') // este JSON simula las carpetas dentro de imagen/
 .then(res => res.json())
 .then(data => {
     data.forEach(manga => {
@@ -24,38 +24,10 @@ fetch('js/folders.json') // este JSON simula las carpetas dentro de images/
 });
 
 function openManga(manga){
-    function loadImagesLazy(chapter, manga) {
-    const container = document.getElementById('manga-images');
-    container.innerHTML = `<h2>${chapter.name}</h2>`;
-
-    let currentPage = 1;
-    const totalPages = chapter.pages;
-
-    function loadNext() {
-        if(currentPage > totalPages) return;
-
-        const img = document.createElement('img');
-        img.src = `imagen/${manga.folder}/${chapter.folder}/${currentPage}.jpg`;
-        img.loading = "lazy"; // carga diferida
-        container.appendChild(img);
-
-        currentPage++;
-    }
-
-    // Cargar las primeras 3 imágenes al inicio
-    for(let i=0;i<3;i++) loadNext();
-
-    // Evento scroll: cuando llegues al final, cargar la siguiente
-    container.addEventListener('scroll', () => {
-        if(container.scrollTop + container.clientHeight >= container.scrollHeight - 10){
-            loadNext();
-        }
-    });
-}
     document.body.innerHTML = `
         <button id="toggle-theme">🌙</button>
         <header class="chapter-header"><h1>${manga.name}</h1></header>
-        <section id="manga-imagen" class="manga-container"></section>
+        <section id="manga-images" class="manga-container"></section>
         <div class="manga-navigation" style="text-align:center;">
             <a id="prev-chap" href="#">⬅ Capítulo anterior</a>
             <a id="home" href="#">Volver al inicio</a>
@@ -65,58 +37,9 @@ function openManga(manga){
     const toggleButton = document.getElementById('toggle-theme');
     toggleButton.addEventListener('click', () => { document.body.classList.toggle('light-mode'); });
 
-    const container = document.getElementById('manga-imagen');
-
-    manga.chapters.forEach((chapter, index) => {
-        const chapTitle = document.createElement('h2');
-        chapTitle.textContent = chapter.name;
-        container.appendChild(chapTitle);
-
-        for(let i=1;i<=chapter.pages;i++){
-            const img = document.createElement('img');
-            img.src = `imagen/${manga.folder}/${chapter.folder}/${i}.jpg`;
-            container.appendChild(img);
-        }
-
-        const prev = document.getElementById('prev-chap');
-        const next = document.getElementById('next-chap');
-
-        prev.addEventListener('click', e=>{
-            e.preventDefault();
-            if(index > 0) openChapter(manga.chapters[index-1], manga);
-        });
-
-        next.addEventListener('click', e=>{
-            e.preventDefault();
-            if(index < manga.chapters.length-1) openChapter(manga.chapters[index+1], manga);
-        });
-
-        document.getElementById('home').addEventListener('click', e=>{
-            e.preventDefault();
-            location.reload();
-        });
-    });
+    loadChapterWithScroll(manga, 0);
 }
 
-function openChapter(chapter, manga){
-    openChapter(chapter, manga){
-    loadImagesLazy(chapter, manga);
-    const container = document.getElementById('manga-images');
-    container.innerHTML = `<h2>${chapter.name}</h2>`;
-    for(let i=1;i<=chapter.pages;i++){
-        const img = document.createElement('img');
-        img.src = `imagen/${manga.folder}/${chapter.folder}/${i}.jpg`;
-        container.appendChild(img);
-    }
-}
-const manga = {
-    folder: "mimanga",
-    chapters: [
-        { folder: "cap1", name: "Capítulo 1", pages: 10 },
-        { folder: "cap2", name: "Capítulo 2", pages: 12 },
-        // más capítulos...
-    ]
-};
 function loadChapterWithScroll(manga, index) {
     const chapter = manga.chapters[index];
     const container = document.getElementById('manga-images');
@@ -148,18 +71,33 @@ function loadChapterWithScroll(manga, index) {
             }
         }
     });
+
+    // Botones de navegación
+    const prev = document.getElementById('prev-chap');
+    const next = document.getElementById('next-chap');
+    const home = document.getElementById('home');
+
+    prev.addEventListener('click', e=>{
+        e.preventDefault();
+        if(index > 0) loadChapterWithScroll(manga, index - 1);
+    });
+
+    next.addEventListener('click', e=>{
+        e.preventDefault();
+        if(index < manga.chapters.length - 1) loadChapterWithScroll(manga, index + 1);
+    });
+
+    home.addEventListener('click', e=>{
+        e.preventDefault();
+        location.reload();
+    });
 }
-document.getElementById('prev-chap').addEventListener('click', e=>{
-    e.preventDefault();
-    if(index > 0) loadChapterWithScroll(manga, index - 1);
-});
 
-document.getElementById('next-chap').addEventListener('click', e=>{
-    e.preventDefault();
-    if(index < manga.chapters.length - 1) loadChapterWithScroll(manga, index + 1);
-});
-
-document.getElementById('home').addEventListener('click', e=>{
-    e.preventDefault();
-    location.reload();
-});
+const manga = {
+    folder: "mimanga",
+    chapters: [
+        { folder: "cap1", name: "Capítulo 1", pages: 10 },
+        { folder: "cap2", name: "Capítulo 2", pages: 12 },
+        // más capítulos...
+    ]
+};
