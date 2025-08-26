@@ -177,3 +177,6 @@ body.light-mode header { background-color:#eee; }
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(255,102,204,0.7);
 }
+body { background-color:#1a1a1a; color:#eee; }
+body.light-mode { background-color:#f5f5f5; color:#111; }
+body.light-mode .top-nav { background-color:#eee; }
