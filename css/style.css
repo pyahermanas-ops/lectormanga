@@ -173,6 +173,16 @@ body.light-mode header { background-color:#eee; }
     max-width: 800px;
     margin: 0 auto;
 }
+.manga-container img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+}
+
+.manga-container img:hover {
+  transform: scale(1.02);
+}
 
 /* Botón de navegación estilizado */
 .manga-navigation a {
