@@ -1,64 +1,16 @@
-body {
-    background-color: #1a1a1a;
-    color: #eee;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #222;
-    padding: 15px;
-    text-align: center;
-}
-
-header h1 {
-    color: #ff66cc;
-}
-
-#toggle-theme {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    padding: 5px 10px;
-    background-color: #444;
-    color: #eee;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-body.light-mode {
-    background-color: #f5f5f5;
-    color: #111;
-}
-
-body.light-mode header {
-    background-color: #eee;
-}
-
-.manga-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-.manga-item {
-    width: 180px;
-    text-align: center;
-    background-color: #222;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 10px #000;
-}
-
-.manga-item img {
-    width: 100%;
-}
-
-.manga-item h2 {
-    color: #ff66cc;
-    margin: 10px 0;
-}
+body { background-color:#1a1a1a; color:#eee; font-family:Arial,sans-serif; margin:0; padding:0; }
+header { background-color:#222; padding:15px; text-align:center; }
+header h1 { color:#ff66cc; }
+#toggle-theme { position:fixed; top:10px; right:10px; padding:5px 10px; background-color:#444; color:#eee; border:none; border-radius:5px; cursor:pointer; }
+body.light-mode { background-color:#f5f5f5; color:#111; }
+body.light-mode header { background-color:#eee; }
+.manga-list { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:20px; }
+.manga-item { width:180px; text-align:center; background-color:#222; border-radius:10px; overflow:hidden; box-shadow:0 0 10px #000; transition:transform 0.3s, box-shadow 0.3s; cursor:pointer; }
+.manga-item img { width:100%; }
+.manga-item h2 { color:#ff66cc; margin:10px 0; }
+.manga-item:hover { transform:translateY(-5px); box-shadow:0 0 15px #ff66cc; }
+.chapter-header { text-align:center; padding:20px; background-color:#222; border-bottom:2px solid #ff66cc; margin-bottom:20px; }
+.chapter-header h1 { color:#ff66cc; }
+.manga-container img { width:100%; max-width:700px; display:block; margin:20px auto; border-radius:5px; box-shadow:0 0 10px #000; }
+.manga-navigation a { display:inline-block; margin:10px; padding:10px 18px; background-color:#333; color:#eee; text-decoration:none; border-radius:8px; transition:all 0.3s; }
+.manga-navigation a:hover { background-color:#ff66cc; color:#111; transform:translateY(-2px); }
