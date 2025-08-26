@@ -1,4 +1,117 @@
-/* Lista de mangas en inicio */
+/* ==================== ESTILO BASE ==================== */
+body {
+    background-color: #1a1a1a;
+    color: #eee;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #222;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #ff66cc;
+    font-size: 2em;
+}
+
+/* ==================== BOTÓN MODO OSCURO ==================== */
+#toggle-theme {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    background-color: #444;
+    color: #eee;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ==================== MODO CLARO ==================== */
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #111;
+}
+
+body.light-mode header {
+    background-color: #eee;
+}
+
+body.light-mode nav a {
+    background-color: #ddd;
+    color: #111;
+}
+
+/* ==================== MENÚ DE CAPÍTULOS ==================== */
+.chapter-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.chapter-menu a {
+    background-color: #333;
+    color: #eee;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    transition: all 0.3s;
+}
+
+.chapter-menu a:hover {
+    background-color: #ff66cc;
+    color: #111;
+    transform: translateY(-3px);
+}
+
+/* ==================== ENCABEZADO DEL CAPÍTULO ==================== */
+.chapter-header {
+    text-align: center;
+    padding: 20px 10px;
+    background-color: #222;
+    border-bottom: 2px solid #ff66cc;
+    margin-bottom: 20px;
+}
+
+.chapter-header h1 {
+    font-size: 2em;
+    color: #ff66cc;
+}
+
+/* ==================== CONTENEDOR DE LECTURA ==================== */
+.manga-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* ==================== NAVEGACIÓN ENTRE CAPÍTULOS ==================== */
+.manga-navigation a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 18px;
+    background-color: #333;
+    color: #eee;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.manga-navigation a:hover {
+    background-color: #ff66cc;
+    color: #111;
+    transform: translateY(-2px);
+}
+
+/* ==================== LISTA DE MANGAS EN INICIO ==================== */
 .manga-list {
     display: flex;
     flex-wrap: wrap;
@@ -32,4 +145,14 @@
 .manga-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 15px #ff66cc;
+}
+
+/* ==================== IMÁGENES DE CAPÍTULOS ==================== */
+#manga-images img {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #000;
 }
