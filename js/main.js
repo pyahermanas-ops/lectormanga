@@ -24,7 +24,12 @@ fetch('js/mangas.json')
 });
 
 function openManga(manga){
-    document.body.innerHTML = `<button id="toggle-theme">🌙</button><header class="chapter-header"><h1>${manga.name}</h1></header><section id="manga-images" class="manga-container"></section><div class="manga-navigation" style="text-align:center;"><a href="#">⬅ Volver al Inicio</a></div>`;
+    document.body.innerHTML = `<button id="toggle-theme">🌙</button><header class="chapter-header"><h1>${manga.name}</h1></header><section id="manga-images" class="manga-container"></section><div class="manga-navigation" style="text-align:center;">
+    <a href="#">⬅ Capítulo anterior</a>
+    <a href="#">Volver al inicio</a>
+    <a href="#">Capítulo siguiente ➡</a>
+</div>
+ style="text-align:center;"><a href="#">⬅ Volver al Inicio</a></div>`;
     const toggleButton = document.getElementById('toggle-theme');
     toggleButton.addEventListener('click', () => { document.body.classList.toggle('light-mode'); });
 
