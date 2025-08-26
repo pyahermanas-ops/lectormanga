@@ -3,8 +3,8 @@ toggleButton.addEventListener('click', () => { document.body.classList.toggle('l
 
 const mangaList = document.getElementById('manga-list');
 
-// Lista de mangas automáticos según carpetas dentro de /images
-fetch('js/mangas.json')
+// Función para leer carpetas de imágenes (simulado con fetch a archivos JSON de prueba)
+fetch('js/folders.json') // este JSON simula las carpetas dentro de images/
 .then(res => res.json())
 .then(data => {
     data.forEach(manga => {
@@ -27,7 +27,7 @@ function openManga(manga){
     document.body.innerHTML = `
         <button id="toggle-theme">🌙</button>
         <header class="chapter-header"><h1>${manga.name}</h1></header>
-        <section id="manga-images" class="manga-container"></section>
+        <section id="manga-imagen" class="manga-container"></section>
         <div class="manga-navigation" style="text-align:center;">
             <a id="prev-chap" href="#">⬅ Capítulo anterior</a>
             <a id="home" href="#">Volver al inicio</a>
@@ -37,9 +37,8 @@ function openManga(manga){
     const toggleButton = document.getElementById('toggle-theme');
     toggleButton.addEventListener('click', () => { document.body.classList.toggle('light-mode'); });
 
-    const container = document.getElementById('manga-images');
+    const container = document.getElementById('manga-imagen');
 
-    // Cargar todos los capítulos y páginas automáticamente
     manga.chapters.forEach((chapter, index) => {
         const chapTitle = document.createElement('h2');
         chapTitle.textContent = chapter.name;
@@ -51,7 +50,6 @@ function openManga(manga){
             container.appendChild(img);
         }
 
-        // Agregar navegación de capítulos
         const prev = document.getElementById('prev-chap');
         const next = document.getElementById('next-chap');
 
@@ -72,7 +70,6 @@ function openManga(manga){
     });
 }
 
-// Función para abrir un capítulo individual
 function openChapter(chapter, manga){
     const container = document.getElementById('manga-images');
     container.innerHTML = `<h2>${chapter.name}</h2>`;
