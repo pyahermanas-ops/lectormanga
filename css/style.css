@@ -14,3 +14,75 @@ body.light-mode header { background-color:#eee; }
 .manga-container img { width:100%; max-width:700px; display:block; margin:20px auto; border-radius:5px; box-shadow:0 0 10px #000; }
 .manga-navigation a { display:inline-block; margin:10px; padding:10px 18px; background-color:#333; color:#eee; text-decoration:none; border-radius:8px; transition:all 0.3s; }
 .manga-navigation a:hover { background-color:#ff66cc; color:#111; transform:translateY(-2px); }
+/* Contenedor de la galería */
+.manga-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Tarjeta de manga */
+.manga-item {
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.manga-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255,102,204,0.7);
+}
+
+/* Imagen de portada */
+.manga-item img {
+    width: 100%;
+    display: block;
+}
+
+/* Nombre del manga */
+.manga-item h2 {
+    text-align: center;
+    color: #ff66cc;
+    font-size: 1.1rem;
+    margin: 10px 0;
+    padding: 0 5px;
+}
+.manga-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.manga-container img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+}
+
+.manga-container img:hover {
+    transform: scale(1.02);
+}
+.manga-navigation a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 15px;
+    background: linear-gradient(135deg,#ff66cc,#cc33ff);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: all 0.3s;
+}
+
+.manga-navigation a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255,102,204,0.7);
+}
